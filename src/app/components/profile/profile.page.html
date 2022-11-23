@@ -1,0 +1,126 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="fixText"> Perfil </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-avatar slot="start" class="avatar">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label> Fulgencio Amador Serrano del Santo Valle de los dolores </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <!-- PERFIL DEL USUARIO -->
+      <ion-col class="profileBox">
+        <form class="example-form">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <span tooltip="Curso" flow="right">Curso</span>
+            <input type="text"  matInput disabled placeholder="Curso" value="3ºB">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <span tooltip="Para ver todas las energías, ir al inventario." flow="right">Puntos de energía</span>
+            <input matInput disabled placeholder="Energía conseguida" value="19">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <span tooltip="Total de Grumpis conseguidos." flow="right">Grumpis conseguidos</span>
+            <input matInput disabled placeholder="Grumpis conseguidos" value="2">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <span tooltip="Total de combates ganados." flow="right">Combates ganados</span>
+            <input matInput disabled placeholder="Combates ganados" value="2">
+          </mat-form-field>
+        </form>
+      </ion-col>
+
+      <!-- ACCESOS DIRECTOS -->
+      <ion-col>
+        <ion-card class="fixText background">
+          <ion-card-header>
+            <ion-card-title> Mi inventario</ion-card-title>
+            <ion-card-subtitle> Acceso directo al contenido conseguido </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p> Aquí puedes ver todas las <strong>medallas </strong> conseguidas, </p>
+            <p>los <strong>grumpis </strong>que te acompañan o</p>
+            <p>las <strong>energías </strong>que tienes.</p>
+            <ion-button (click)="openInventory()" color="success" shape="round"> Mi inventario </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="fixText background">
+    <ion-card-header>
+      <ion-card-title> Centro de actividades </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p> En el centro de actividades encuentra las tareas que estás realizando, o las que aún no están evaluadas. </p>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button shape="round" color="success" (click)="setOpen(true)"> Tareas en seguimiento </ion-button>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title> Tareas en seguimiento </ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button (click)="setOpen(false)"> Cerrar </ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
+                    reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui.
+                    Eaque,
+                    dicta.
+                  </p>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+          </ion-col>
+          <ion-col>
+            <ion-button shape="round" color="success"> Tareas pendientes de evaluación </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="background">
+          <ion-card-header>
+            <ion-card-title class="fixText"> Mis Grumpis </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="fixText">
+            <ion-button (click)="openCreatures()" color="success" shape="round"> Ver Grumpis </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="background">
+          <ion-card-header>
+            <ion-card-title class="fixText"> Mis medallas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="fixText">
+            <ion-button (click)="openInventory()" color="success" shape="round"> Ver medallas </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

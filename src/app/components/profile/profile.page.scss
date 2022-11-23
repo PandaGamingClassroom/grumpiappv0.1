@@ -1,0 +1,37 @@
+.example-full-width {
+    width: 100%;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.fixText {
+    text-align: center;
+}
+
+.avatar {
+    width: 10%;
+    height: 10%;
+}
+
+
+.background {
+    border-radius: 10px 0px 39px 22px;
+    background-image: url(../../../assets/img/wave-haikei.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.profileBox {
+    height: 600px;
+    width: 400px;
+    color: #fff;
+    border-radius: 10px 0px 39px 22px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-image: url(../../../assets/img/wave-haikei.png);
+    background-size: cover;
+}

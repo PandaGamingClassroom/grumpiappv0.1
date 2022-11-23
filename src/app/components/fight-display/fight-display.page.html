@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="fixText"> Combate Grumpi </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Reglas del combate </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p> Antes de comenzar el combate:</p>
+      <p> Tendremos que seleccionar a los Grumpis que vamos a querer utilizar en la batalla. </p>
+      <p> Después jugaremos a <strong> Piedra, Papel, Tijera. </strong> </p>
+      <p> El ganador será quien comience el combate.</p>
+      <p> Recuerda que <strong>siempre </strong>al comenzar un turno nuevo se va a volver a jugar a <strong>
+          Piedra, Papel,
+          Tijera. </strong></p>
+      <p> Como siempre, el ganador será quien realice el ataque.</p>
+      <p> Presta atención para ganar a tu rival </p>
+      <hr>
+      <p> ¿Tienes energías suficientes? </p>
+      <p> Las vas a necesitar para hacer uso de las habilidades cargadas de tus Grumpis. </p>
+      <br>
+      <p> Adelante, selecciona en la columna de la derecha a tus Grumpis favoritos y comencemos :) </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Selecciona tu equipo </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let g of grumpiList">
+            <ion-img src="{{ g.data.img}}" alt="Grumpi conseguido {{ g.data.name }}"></ion-img>
+            <div class="example-margin">
+              <ion-item>
+                <ion-checkbox slot="start" [disabled]="allComplete ? true: false" (ionChange)="someComplete(g)"
+                  [(ngModel)]="g.isSelected">
+                </ion-checkbox>
+
+                <ion-label> {{ g.data.name }} </ion-label>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="fixText">
+        <ion-row>
+          <ion-col>
+            <ion-button [disabled]="haveAllGrumpis ? true: false" (click)="aceptTerms()" color="success">
+              <ion-icon name="checkmark-outline"></ion-icon>
+              Confirmar equipo
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button [disabled]="haveAllGrumpis ? true: false" (click)="descheckSelection()" color="danger">
+              <ion-icon name="checkmark-outline"></ion-icon>
+              Deshacer selección
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+        <ng-template>
+          <ion-content class="ion-padding"> Selecciona 3 Grumpis para tu equipo </ion-content>
+        </ng-template>
+      </ion-popover>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,71 @@
+.cardContentImg {
+    text-align: center;
+}
+
+.colorLetters {
+    color: #fff;
+}
+
+.mainContent {
+    background-image: url(../../../assets/img/wave-haikei.png);
+    background-size: contain;
+    border: 1px solid black;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    border-radius: 10px 0px 39px 22px;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.menuBtn {
+    padding-top: 2%;
+    text-align: center;
+}
+
+.cardTitle {
+    color: #fff;
+    text-align: center;
+}
+
+
+.btnMoreInfo {
+    text-align: center;
+}
+
+.color-change-2x {
+    -webkit-animation: color-change-2x 2s linear infinite alternate both;
+    animation: color-change-2x 2s linear infinite alternate both;
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.tracking-in-expand {
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.logo {
+    height: 30%;
+    width: 30%;
+}
+
+ion-card {
+    background-image: url(../../../assets/img/wave-haikei.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}

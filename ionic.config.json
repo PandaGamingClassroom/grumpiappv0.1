@@ -1,0 +1,7 @@
+{
+  "name": "grumpiapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

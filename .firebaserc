@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "grumpisgamificacion"
+  },
+  "targets": {
+    "grumpisgamificacion": {
+      "hosting": {
+        "app": [
+          "grumpisgamificacion"
+        ]
+      }
+    }
+  }
+}

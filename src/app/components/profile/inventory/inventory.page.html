@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/profile/inventory" text="Atrás"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="fixText"> Mi inventario </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="medals">
+        <ion-icon name="ribbon-outline"></ion-icon>
+        <ion-label>Medallas</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="creatures">
+      <ion-icon name="bug-outline"></ion-icon>
+        <ion-label> Grumpis </ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="others">
+        <ion-icon name="help-outline"></ion-icon>
+        <ion-label> Otros </ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>

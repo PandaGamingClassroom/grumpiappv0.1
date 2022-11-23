@@ -1,0 +1,130 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Atrás"></ion-back-button>
+    </ion-buttons>
+    <ion-title> INFORMACIÓN GENERAL GRUMPI </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <div class="">
+        <p>
+          En clase este año tenemos una metodología llamada gamificación. En esta, se vinculan rasgos de los
+          videojuegos con las
+          tareas en clase. En concreto, nos hemos traído el juego de Grumpi al colegio.
+        </p>
+        <p>
+          En ella, tienen que ir haciendo pequeños retos para capturar Grumpi, conseguir las medallas de
+          gimnasio o superar la
+          liga Grumpi. Todos estos retos están vinculados con las asignaturas que tenemos en el colegio, por
+          lo que es una buena
+          forma de repasar, ampliar conocimientos y aprender un poquito más sobre diversos aspectos, mientras
+          nos hacemos con un
+          montón de Grumpi y medallas.
+        </p>
+        <p>
+          Cabe indicar, que aunque la participación no es obligatoria, será bien recompensada, ya que no solo
+          conseguiremos los
+          Grumpi para pegarlos en nuestra tarjeta de entrenador, sino que se verá recompensado en nuestra
+          nota.
+        </p>
+        <p>
+          Que nos se nos olvide, los trabajos han de ser lo más originales posibles, y siempre que podamos,
+          reaprovechar y
+          reutilizar aquellos materiales que tengamos en clase y en casa.
+        </p>
+        <p>
+          Además, cada viernes, nuestr@s alumn@s conseguirán energía, una moneda de cambio que podrán usar en
+          diferentes ámbitos
+          de la gamificación: obtener recompensas, evolucionar Grumpi, combates...
+        </p>
+        <p>
+          Esta se conseguirá mediante unos ítems que se establecieron al inicio de curso. Es muy importante
+          que seáis responsables
+          de vuestra energía, ya que si se pierde, esta no se recuperará salvo que ganemos alguna energía
+          extra con trabajos en
+          clase que irá indicando el profesor o nos tocará esperar al próximo viernes para conseguir la
+          energía nueva que de dará
+          esa semana.
+        </p>
+        <br>
+        <p style="text-align: center;" class="text-focus-in">
+          <strong> ¡QUE COMIENCE LA AVENTURA GRUMPI! </strong>
+        </p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="paddingTitle">
+    <ion-card-title> ACCESO A LAS INTRUCCIONES </ion-card-title>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button shape="round" color="success" type="button" class="btn btn-info hvr-grow"
+              (click)="goGetCreatures()">Grumpis
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button shape="round" color="success" type="button" class="btn btn-info hvr-grow" (click)="goGetMedals()">
+              MEDALLAS
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button shape="round" color="success" type="button" class="btn btn-info hvr-grow" (click)="goGetCup()">
+              LA COPA
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button shape="round" color="success" type="button" class="btn btn-info hvr-grow"
+              (click)="goGetCombats()">COMBATE
+              GRUMPI
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button shape="round" color="success" type="button" class="btn btn-info hvr-grow"
+              (click)="goGetLegendCards()">
+              TARJETAS
+              GRUMPI</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button shape="round" color="success" type="button" class="btn btn-info hvr-grow" (click)="goMap()">MAPA
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button shape="round" color="success" type="button" class="btn btn-info hvr-grow"
+              (click)="goEvolutions()">EVOLUCIONES
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="arrow-redo-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

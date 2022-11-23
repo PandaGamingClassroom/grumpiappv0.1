@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="mainTitle"> Sobre GrumpiApp </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <div class="">
+        <h1 class="mainTitle"> ACERCA DE GRUMPIAPP </h1>
+        <div>
+          <p> Los Grumpis consisten en una gamificación, en la cual se pretenden llevar los aspectos de los videojuegos
+            al
+            aula. </p>
+          <p> Es una metodología innovadora, que favorece a la motivación, atención, desarrollo académico y personal de
+            nuestro alumnado, en definitiva, un desarrollo integral de este; pues a través de los diversos retos se
+            trabajarán, tanto aspectos curriculares de refuerzo, ampliación y consolidación, así como aspectos
+            personales,
+            conductuales y otros que permitan el desarrollo de diversas habilidades vinculadas a la lógica, el
+            compañerismo, la estrategia.... </p>
+          <p> Este tipo de metodología, nos permite además, atender a la diversidad presente en nuestro aula, pudiendo
+            adaptar los retos y los tiempo, para aquellos alumnos y alumnas que lo requieran. </p>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <ion-img class="logoApp" src="../../../assets/img/GrumpiApp.png" alt="Logo de aplicación Grumpi."></ion-img>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="arrow-redo-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="openTwitter()">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+    <ion-button shape="round" color="success" (click)="goMoreInfoPage()">
+      Instrucciones
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-fab>
+
+</ion-content>

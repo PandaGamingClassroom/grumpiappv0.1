@@ -1,0 +1,92 @@
+.main {
+    background-repeat: no-repeat;
+    background-image: url(../../../../assets/img/bg.jpg);
+    background-size: cover;
+    height: auto;
+}
+
+.paddingTitle {
+    text-align: center;
+}
+
+.separateColumns {
+    padding-top: 1%;
+}
+
+.btnCointainer {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.containerInfo {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 600px;
+
+}
+
+.containerTextForm {
+    color: rgb(255, 255, 255);
+    border: 3px solid brown;
+    border-radius: 10px 0px 39px 22px;
+    background-image: url(../../../../assets/img/wave-haikei.png);
+    background-size: contain;
+    padding: 9px;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: x-large;
+}
+
+/* Grow */
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
+/**
+    CONFIGURACIÓN PARA ANIMACIÓN TÍTULO
+**/
+.text-focus-in {
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}

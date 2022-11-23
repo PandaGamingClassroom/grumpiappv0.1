@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/fight-display" text="Atrás"></ion-back-button>
+    </ion-buttons>
+    <ion-title> BATALLAS GRUMPI </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <!-- CAMPO DE BATALLA -->
+      <ion-col></ion-col>
+
+      <!-- EQUIPO GRUMPI -->
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col  *ngFor="let g of gumpiSelectedList">
+              <ion-img src="{{ g.img }}" alt="Grumpi conseguido {{ g.name }}"></ion-img>
+              <ion-item>
+                <ion-checkbox slot="start" [disabled]="allComplete ? true: false" (ionChange)="someComplete(g)"
+                  [(ngModel)]="g.isSelected">
+                </ion-checkbox>
+                <ion-label> {{ g.name }} </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-button shape="round" color="success"> !A combatir¡ </ion-button>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+
+  <!-- DIÁLOGO DE COMBATE -->
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- BARRA DE NAVEGACIÓN  -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button shape="round" color="success"> Atacar </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="success"> Objeto </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="danger"> Rendirse </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-fab>
+
+</ion-content>
