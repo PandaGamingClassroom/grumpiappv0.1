@@ -31,4 +31,8 @@ export class GrumpisService {
     set(dataSource: any[]) {
         localStorage.setItem('equipo_grumpi', JSON.stringify(dataSource));
     }
+
+    setToCombat(dataSource: any[]) {
+        localStorage.setItem('grumpi_combate', JSON.stringify(dataSource));
+    }
 }

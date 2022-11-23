@@ -11,28 +11,97 @@
   <ion-grid>
     <ion-row>
       <!-- CAMPO DE BATALLA -->
-      <ion-col></ion-col>
-
-      <!-- EQUIPO GRUMPI -->
       <ion-col>
+        <div class="cardBattle">
+          <ion-grid>
+            <ion-row>
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <!-- Salud criatura adversario -->
+                      <div>
+                        <ion-label> Salud: </ion-label>
+                      </div>
+                    </ion-col>
+                    <ion-col>
+                      <ion-img src="../../../../assets/img/003.jpg" alt="Tarjeta Grumpi" style="width:100%"></ion-img>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-row>
+          </ion-grid>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-card-content>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col *ngFor="let g of creatureToCombat">
+                        <a>
+                          <ion-img src="{{ g.img }}" alt="Tarjeta Grumpi" style="width:100%">
+                          </ion-img>
+                        </a>
+
+                      </ion-col>
+                      <ion-col>
+                        <!-- Salud de la criatura usuario -->
+                        <div>
+                          <ion-label> Salud: </ion-label>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card-content>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Botón de selección de la criatura -->
+  <ion-button id="open-modal" shape="round" color="success" style="padding-left: 25%;"> Selecciona Grumpi </ion-button>
+
+  <!-- Ventana modal con las criaturas del usuario -->
+  <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Tus Grumpis</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="cancel()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
         <ion-grid>
           <ion-row>
-            <ion-col  *ngFor="let g of gumpiSelectedList">
-              <ion-img src="{{ g.img }}" alt="Grumpi conseguido {{ g.name }}"></ion-img>
-              <ion-item>
-                <ion-checkbox slot="start" [disabled]="allComplete ? true: false" (ionChange)="someComplete(g)"
-                  [(ngModel)]="g.isSelected">
-                </ion-checkbox>
-                <ion-label> {{ g.name }} </ion-label>
-              </ion-item>
+            <ion-col>
+              <ion-grid>
+                <ion-row>
+                  <ion-col *ngFor="let g of gumpiSelectedList">
+                    <ion-img src="{{ g.img }}" alt="Grumpi conseguido {{ g.name }}"></ion-img>
+                    <ion-item>
+                      <ion-checkbox slot="start" [disabled]="allComplete ? true: false" (ionChange)="someComplete(g)"
+                        [(ngModel)]="g.isSelected">
+                      </ion-checkbox>
+                      <ion-label> {{ g.name }} </ion-label>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-button shape="round" color="success" (click)="acceptSelectionCreature()"> !A combatir¡ </ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-button shape="round" color="success"> !A combatir¡ </ion-button>
-      </ion-col>
-      
-    </ion-row>
-  </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
 
   <!-- DIÁLOGO DE COMBATE -->
   <ion-grid>

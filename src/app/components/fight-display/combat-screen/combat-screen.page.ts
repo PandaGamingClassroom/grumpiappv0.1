@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { IonModal, ModalController } from '@ionic/angular';
 import { GRUMPI } from 'src/app/models/grumpi.model';
 import { GrumpisService } from 'src/app/services/grumpis.service';
 
@@ -16,50 +17,59 @@ export class CombatScreenPage implements OnInit {
   // Grumpis que se envían a otro componente
   @Input() gumpiToSend: any[] = [];
 
-  constructor(private grumpisService: GrumpisService) { }
+  // Criatura que se va a utilizar en combate
+  creatureToCombat: any[] = [];
+
+  // Configuración ventana modal (Selección de Grumpi)
+  canDismiss = false;
+  presentingElement: any;
+  @ViewChild(IonModal)
+  modal!: IonModal;
+
+  constructor(private grumpisService: GrumpisService, public modalController: ModalController) { }
 
   ngOnInit() {
     this.gumpiSelectedList = this.grumpisService.get();
     console.log('MI EQUIPO: ', this.gumpiSelectedList);
   }
 
+  cancel() {
+    this.modalController.dismiss();
+  }
+
+  /**
+   * Comprobamos los Grumpis seleccionados.
+   * Solo se permite seleccionar uno.
+   * Este seleccionado será el que se utilice en combate.
+   * 
+   * @param grumpiSelected Grumpi que ha seleccionado el usuario.
+   */
   someComplete(grumpiSelected: any) {
     let checkGrumpi = false;
-    console.log('SELECCION: ', grumpiSelected);
 
-    if (grumpiSelected.checked == false) {
-      this.grumpi.checked = grumpiSelected.checked = true;
-      this.gumpiToSend = this.addToList(grumpiSelected);
-    } else {
-      this.grumpi.checked = grumpiSelected.checked = false;
-    }
-
-    if (grumpiSelected.checked === true) {
+    if (grumpiSelected.isSelected == true) {
       this.contador++;
       checkGrumpi = this.checkGrumpis(this.contador);
+      this.grumpi.checked = grumpiSelected.isSelected = true;
+      this.gumpiToSend.push(grumpiSelected);
     }
 
   }
 
   /**
-* Se comprueban las criaturas marcadas con check
-* Se guardan en una lista 
-* 
-* @param creatureSelected 
-* @returns Devuelve la lista de criaturas seleccionadas
-*/
-  addToList(creatureSelected: GRUMPI): any[] {
-    if (creatureSelected.checked === true) {
-      this.gumpiToSend.push(creatureSelected);
-      return this.gumpiToSend;
-    }
-    return this.gumpiToSend;
+   * Al aceptar la selección del Grumpi para el combate
+   * este se guarda en memoria para mostrarlo en la ventana del combate
+   */
+  acceptSelectionCreature() {
+    console.log('Grumpi para luchar: ', this.gumpiToSend);
+     this.grumpisService.setToCombat(this.gumpiToSend);
+    this.creatureToCombat = this.gumpiToSend
+    this.cancel();
   }
-
 
   /**
    * Revisamos el máximo nº de Grumpis seleccionados
-   * Máx = 3
+   * Máx = 1
    * @param contador Número de criaturas seleccionadas
    */
   checkGrumpis(contador: number): boolean {
