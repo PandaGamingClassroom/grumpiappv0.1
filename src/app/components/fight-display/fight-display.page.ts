@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { GRUMPI } from 'src/app/models/grumpi.model';
 import { GrumpisService } from 'src/app/services/grumpis.service';
@@ -9,7 +9,7 @@ import { StoreService } from 'src/app/services/store/store.service';
   templateUrl: './fight-display.page.html',
   styleUrls: ['./fight-display.page.scss'],
 })
-export class FightDisplayPage implements OnInit {
+export class FightDisplayPage implements OnInit, OnDestroy {
 
   // Grumpis que se envían a otro componente
   @Input() gumpiToSend: GRUMPI[] = [];
@@ -27,27 +27,25 @@ export class FightDisplayPage implements OnInit {
   haveAllGrumpis: boolean = false;
   audio = new Audio('../../../assets/sound/button-click-off-click.mp3');
 
+  // Atrib. Criaturas
   grumpiName: string = '';
   grumpiDesc: string = '';
   gumpiImg: any;
 
+  chargeData: boolean = false;
+
   @ViewChild('popover') popover: any;
   isOpen = false;
 
-  constructor(private route: Router, private grumpisService: GrumpisService, private storeService: StoreService) { }
+  constructor(private route: Router, 
+    private grumpisService: GrumpisService, 
+    private storeService: StoreService
+    ) { 
+   
+    }
 
   ngOnInit() {
-
-    this.storeService.getCreatures().subscribe((creaturesList) => {
-      this.grumpiList = [];
-      creaturesList.forEach((catData: any) => {
-        this.grumpiList.push({
-          id: catData.payload.doc.id,
-          data: catData.payload.doc.data()
-        });
-      })
-    });
-
+    this.chargeCreatures();
   }
 
   /**
@@ -103,6 +101,19 @@ export class FightDisplayPage implements OnInit {
     }
   }
 
+  chargeCreatures() {
+    this.storeService.getCreatures().subscribe((creaturesList) => {
+      this.grumpiList = [];
+      creaturesList.forEach((catData: any) => {
+        this.grumpiList.push({
+          id: catData.payload.doc.id,
+          data: catData.payload.doc.data()
+        });
+      })
+    });
+  }
+
+
   /**
    * Se limpia la selección que se ha realizado.
    * allCompleteuelve a dejar libre los checkbox para nueva selección.
@@ -110,5 +121,13 @@ export class FightDisplayPage implements OnInit {
   descheckSelection() {
     this.allComplete = false;
     this.grumpiList.forEach(node => node.isSelected = false);
+  }
+
+  ngOnDestroy(){
+    window.location.reload();
+  }
+
+  refresh() {
+    window.location.reload();
   }
 }

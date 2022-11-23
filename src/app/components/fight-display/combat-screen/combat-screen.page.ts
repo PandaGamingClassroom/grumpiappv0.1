@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonModal, ModalController } from '@ionic/angular';
 import { GRUMPI } from 'src/app/models/grumpi.model';
 import { GrumpisService } from 'src/app/services/grumpis.service';
@@ -26,7 +27,8 @@ export class CombatScreenPage implements OnInit {
   @ViewChild(IonModal)
   modal!: IonModal;
 
-  constructor(private grumpisService: GrumpisService, public modalController: ModalController) { }
+  constructor(private grumpisService: GrumpisService, 
+    public modalController: ModalController, private route: Router) { }
 
   ngOnInit() {
     this.gumpiSelectedList = this.grumpisService.get();
@@ -35,6 +37,10 @@ export class CombatScreenPage implements OnInit {
 
   cancel() {
     this.modalController.dismiss();
+  }
+
+  goBack() {
+    this.route.navigate(['/fight-display']);
   }
 
   /**
