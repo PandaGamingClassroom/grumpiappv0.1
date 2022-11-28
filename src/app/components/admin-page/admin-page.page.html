@@ -8,5 +8,125 @@
 </ion-header>
 
 <ion-content>
+  <!-- NUEVOS ALUMNOS -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title> Añadir alumnos </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="usersForm" (ngSubmit)="submitForm()">
+              <ion-item lines="full">
+                <ion-label position="floating"> Nombre </ion-label>
+                <ion-input type="text" required formControlName="name"></ion-input>
+              </ion-item>
+             
+              <ion-item lines="full">
+                <ion-label position="floating"> Apellidos </ion-label>
+                <ion-input type="text" required formControlName="lastName"></ion-input>
+              </ion-item>
+              <ion-item lines="full">
+                <ion-label position="floating"> Usuario </ion-label>
+                <ion-input type="email" required formControlName="email"></ion-input>
+              </ion-item>
+              <ion-item lines="full">
+                <ion-label position="floating"> Contraseña </ion-label>
+                <ion-input type="text" required formControlName="password"></ion-input>
+              </ion-item>
+              <ion-row>
+                <ion-col>
+                  <ion-button type="submit" color="success" expand="block" shape="round"> Añadir nuevo alumno
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
 
+      <!-- NUEVAS TAREAS -->
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title> Añadir tareas </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form>
+              <ion-item lines="full">
+                <ion-label position="floating"> Nombre de la tarea </ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+              <ion-item lines="full">
+                <ion-label position="floating"> Descripción de la tarea </ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+              <ion-radio-group lines="full">
+                <ion-list-header>
+                  <ion-label (click)="expandMenu()"> Asignatura <ion-icon name="chevron-down-outline"></ion-icon>
+                  </ion-label>
+                </ion-list-header>
+                <div *ngIf="showMenu ? true: false">
+                  <ion-item>
+                    <ion-label> Matemáticas </ion-label>
+                    <ion-radio slot="start" value="mate" checked></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label> Lengua </ion-label>
+                    <ion-radio slot="start" value="lengua"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label> Ciencias de la naturaleza </ion-label>
+                    <ion-radio slot="start" value="natu"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label> Ciencias sociales </ion-label>
+                    <ion-radio slot="start" value="soci"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label> Inglés </ion-label>
+                    <ion-radio slot="start" value="ingles"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label> Música </ion-label>
+                    <ion-radio slot="start" value="musica"></ion-radio>
+                  </ion-item>
+                </div>
+
+                <ion-row>
+                  <ion-col>
+                    <ion-button type="submit" color="success" expand="block" shape="round"> Añadir tarea </ion-button>
+                  </ion-col>
+                  <ion-col>
+                    <ion-button type="submit" color="success" expand="block" shape="round"> Añadir documento
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- INVENTARIO DE LOS ALUMNOS -->
+  <ion-grid>
+    <ion-row>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title> Listado de alumnos </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- LISTADO DE ALUMNOS DISPONIBLES -->
+          <ion-list [inset]="true" *ngFor="let alumn of alumnsList">
+            <ion-item >
+              <ion-label> {{ alumn.data.name }} {{ alumn.data.lastName }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, ViewChild, OnDestroy } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
 import { GRUMPI } from 'src/app/models/grumpi.model';
 import { GrumpisService } from 'src/app/services/grumpis.service';
@@ -39,13 +40,15 @@ export class FightDisplayPage implements OnInit, OnDestroy {
 
   constructor(private route: Router, 
     private grumpisService: GrumpisService, 
-    private storeService: StoreService
+    private storeService: StoreService,
+    private storage: AngularFireStorage
     ) { 
    
     }
 
   ngOnInit() {
     this.chargeCreatures();
+    
   }
 
   /**
@@ -102,13 +105,26 @@ export class FightDisplayPage implements OnInit, OnDestroy {
   }
 
   chargeCreatures() {
+    let urlImg;
+    let fileRef;
+    let storageRef;
     this.storeService.getCreatures().subscribe((creaturesList) => {
+      console.log('creaturesList ', creaturesList);
       this.grumpiList = [];
-      creaturesList.forEach((catData: any) => {
+      creaturesList.forEach((creatureData: any) => {
         this.grumpiList.push({
-          id: catData.payload.doc.id,
-          data: catData.payload.doc.data()
+          id: creatureData.payload.doc.id,
+          data: creatureData.payload.doc.data()
         });
+       
+      })
+      console.log('BBDD ', this.grumpiList[0].data);
+      this.grumpiList.forEach(img => {
+        urlImg = img.data.img;
+        storageRef = this.storage.ref('assets/download/' + urlImg);
+        fileRef = this.storage.refFromURL(urlImg).getDownloadURL();
+        console.log('url imagen ', urlImg);
+        console.log('url fileRef ', fileRef);
       })
     });
   }
@@ -129,5 +145,7 @@ export class FightDisplayPage implements OnInit, OnDestroy {
 
   refresh() {
     window.location.reload();
-  }
+  } 
+  
+
 }
