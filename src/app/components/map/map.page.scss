@@ -24,4 +24,24 @@
     left: 50px;
     padding: 10px;
     z-index: 999;
+    width: 300px;
+}
+
+.list-group {
+    position: fixed;
+    top: 10%;
+    right: 20px;
+    z-index: 99;
+}
+li{
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 800px;
+}
+.mapboxgl-popup-content {
+    color: black;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }

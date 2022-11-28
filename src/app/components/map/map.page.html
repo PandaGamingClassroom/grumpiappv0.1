@@ -7,7 +7,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-info" (click)="agregarMarcador()">
+      + Agregar
+    </li>
+    <li class="list-group-item" *ngFor="let marcador of marcadores" (click)="irMarcador(marcador)">
+      Marcador
+    </li>
+  </ul>
 
   <!-- MAPA GRUMPI -->
   <div #mapa class="mapBox"></div>
@@ -16,9 +24,10 @@
   <div class="row">
     <div class="col-12">
       <label class="form-label colorText">
-        Zoom: {{ zoomLevel  | number: '2.0-2' }}
+        Zoom: {{ zoomLevel | number: '2.0-2' }}
       </label>
-      <input type="range" class="form-range">
+      <input type="range" class="form-range" [value]="zoomLevel" min="5" max="9" (input)="zoomCambio(zoomInput.value)"
+        #zoomInput>
     </div>
     <div class="col-12">
       <ion-button color="success" (click)="zoomOut()"> - </ion-button>
