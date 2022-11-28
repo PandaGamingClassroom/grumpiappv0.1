@@ -9,4 +9,21 @@
 
 <ion-content>
 
+  <!-- MAPA GRUMPI -->
+  <div #mapa class="mapBox"></div>
+
+  <!-- CONTROL ZOOM MAPA -->
+  <div class="row">
+    <div class="col-12">
+      <label class="form-label colorText">
+        Zoom: {{ zoomLevel  | number: '2.0-2' }}
+      </label>
+      <input type="range" class="form-range">
+    </div>
+    <div class="col-12">
+      <ion-button color="success" (click)="zoomOut()"> - </ion-button>
+      <ion-button color="success" class="float-end" (click)="zoomIn()"> + </ion-button>
+    </div>
+  </div>
+
 </ion-content>

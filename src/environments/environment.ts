@@ -15,7 +15,8 @@ export const environment = {
     messagingSenderId: "216276560508",
     appId: "1:216276560508:web:4e6e04ff36024d5b0777f9",
     measurementId: "G-LLHYNTR4C0"
-  }
+  },
+  mapBoxToken: 'pk.eyJ1IjoibG9zZ3J1bXBpcyIsImEiOiJjbGIwajRzaGUwYWpwM3Rsc3B4YmgzMW81In0.AskPXPLBYT_s5GTyq0ydBw'
 };
 
 // Initialize Firebase
