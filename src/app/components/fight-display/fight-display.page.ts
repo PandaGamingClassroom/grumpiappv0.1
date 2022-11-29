@@ -105,9 +105,6 @@ export class FightDisplayPage implements OnInit, OnDestroy {
   }
 
   chargeCreatures() {
-    let urlImg;
-    let fileRef;
-    let storageRef;
     this.storeService.getCreatures().subscribe((creaturesList) => {
       this.grumpiList = [];
       creaturesList.forEach((creatureData: any) => {
@@ -117,14 +114,7 @@ export class FightDisplayPage implements OnInit, OnDestroy {
         });
        
       })
-      console.log('BBDD ', this.grumpiList[0].data);
-      this.grumpiList.forEach(img => {
-        urlImg = img.data.img;
-        storageRef = this.storage.ref('assets/download/' + urlImg);
-        fileRef = this.storage.refFromURL(urlImg).getDownloadURL();
-        console.log('url imagen ', urlImg);
-        console.log('url fileRef ', fileRef);
-      })
+      
     });
   }
 

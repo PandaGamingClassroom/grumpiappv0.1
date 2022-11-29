@@ -26,8 +26,7 @@
 }
 
 .profileBox {
-    height: 600px;
-    width: 400px;
+    height: 400px;
     color: #fff;
     border-radius: 10px 0px 39px 22px;
     text-align: center;
@@ -38,4 +37,16 @@
 .avatarBoxSelection {
     height: 600px;
     width: 400px;
+}
+
+.form {
+    border-radius: 15px 50px
+}
+
+.avatarSelectionBtn {
+    padding-left: 1%;
+    position: fixed;
+    top: 6%;
+    right: 20px;
+    z-index: 99;
 }

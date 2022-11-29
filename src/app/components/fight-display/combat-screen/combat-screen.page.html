@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button (click)="goBack()" text="Atrás"></ion-back-button>
     </ion-buttons>
-    <ion-title> BATALLAS GRUMPI </ion-title>
+    <ion-title class="fixText"> BATALLAS GRUMPI </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -35,20 +35,19 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <ion-card-content>
+                <ion-card-content *ngFor="let g of creatureToCombat">
                   <ion-grid>
                     <ion-row>
-                      <ion-col *ngFor="let g of creatureToCombat">
+                      <ion-col>
                         <a>
                           <ion-img src="{{ g.img }}" alt="Tarjeta Grumpi" style="width:100%">
                           </ion-img>
                         </a>
-
                       </ion-col>
                       <ion-col>
                         <!-- Salud de la criatura usuario -->
                         <div>
-                          <ion-label> Salud: </ion-label>
+                          <ion-label> Salud:  {{ actualHealth }} </ion-label>
                         </div>
                       </ion-col>
                     </ion-row>
@@ -115,16 +114,78 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-button shape="round" color="success"> Atacar </ion-button>
+          <ion-button shape="round" color="success" (click)="presentPopover($event)"> Atacar </ion-button>
         </ion-col>
         <ion-col>
-          <ion-button shape="round" color="success"> Objeto </ion-button>
+          <ion-button shape="round" color="success" (click)="presentPopObject($event)"> Objeto </ion-button>
         </ion-col>
         <ion-col>
-          <ion-button shape="round" color="danger"> Rendirse </ion-button>
+          <ion-button shape="round" color="danger" (click)="setOpen(true)"> Rendirse </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-fab>
-
 </ion-content>
+
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title class="fixText"> ¿Te rindes? </ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)"> Cerrar </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding fixText">
+      <div class="iconBox">
+        <ion-img class="alertImg" src="../../../../assets/img/alert.png"></ion-img>
+      </div>
+      <p> Vas a salir del combate y comenzarás de 0. </p>
+      <ion-button shape="round" color="success" (click)="surrender()"> Aceptar </ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<!-- MODAL PARA MOSTRAR LOS ATAQUES -->
+<ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+  <ng-template>
+    <ion-content class="ion-padding fixText" *ngFor="let attack of creatureToCombat">
+      <ion-button shape="round" color="success"> 
+      <ion-label> {{ attack.ataques.ataque_basico.name }}:  </ion-label>  
+      <ion-label> {{ attack.ataques.ataque_basico.points }} </ion-label>
+      </ion-button>
+      <ion-button shape="round" color="success"> 
+        <ion-label> {{ attack.ataques.ataque_cargado.name }}: </ion-label>
+        <ion-label> {{ attack.ataques.ataque_cargado.points }} </ion-label>
+       </ion-button>
+    </ion-content>
+  </ng-template>
+</ion-popover>
+
+<!-- MODAL LOS OBJETOS -->
+<ion-popover #popobject [isOpen]="modalOpenObjects" (didDismiss)="modalOpenObjects = false">
+  <ng-template>
+    <ion-content class="ion-padding fixText">
+      <h3> Selección de objeto </h3>
+      <div class="objectWindow">
+        <ion-list *ngFor="let obj of objectList">
+          <ion-item >
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-img class="avatar" src="{{ obj }}"></ion-img>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="success" shape="round" (click)="itemSelected(obj)"> Seleccionar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-popover>

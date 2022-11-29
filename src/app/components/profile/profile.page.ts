@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit {
   message = 'This modal example uses the modalController to present and dismiss modals.';
   audio = new Audio('../../../assets/sound/button-click-off-click.mp3');
   isModalOpen = false;
+  pendingTasksOpen = false;
 
   /*********************
    * Variables AVATAR
@@ -35,7 +36,6 @@ export class ProfilePage implements OnInit {
     this.avatar_list[2] = this.avatar2;
     this.avatar_list[3] = this.avatar3;
     this.avatar_list[4] = this.avatar4;
-
   }
 
   clickSound() {
@@ -45,6 +45,10 @@ export class ProfilePage implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  openPendingTasks(isOpen: boolean) {
+    this.pendingTasksOpen = isOpen
   }
 
   openAvatars(isOpen: boolean) {
