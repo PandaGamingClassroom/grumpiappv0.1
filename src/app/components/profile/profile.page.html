@@ -7,25 +7,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <ion-grid>
     <ion-row>
       <ion-col>
         <ion-item>
           <ion-avatar slot="start" class="avatar">
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img src="{{ avatarSelect }}" />
           </ion-avatar>
-          <ion-label> Fulgencio Amador Serrano del Santo Valle de los dolores </ion-label>
+          <ion-label> Fulgencio Amador Serrano </ion-label>
         </ion-item>
+        <ion-button style="padding-left: 1%;" color="success" shape="round" (click)="openAvatars(true)"> Cambiar avatar </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
+
       <!-- PERFIL DEL USUARIO -->
       <ion-col class="profileBox">
         <form class="example-form">
           <mat-form-field class="example-full-width" appearance="fill">
             <span tooltip="Curso" flow="right">Curso</span>
-            <input type="text"  matInput disabled placeholder="Curso" value="3ºB">
+            <input type="text" matInput disabled placeholder="Curso" value="3ºB">
           </mat-form-field>
           <mat-form-field class="example-full-width" appearance="fill">
             <span tooltip="Para ver todas las energías, ir al inventario." flow="right">Puntos de energía</span>
@@ -70,26 +72,6 @@
         <ion-row>
           <ion-col>
             <ion-button shape="round" color="success" (click)="setOpen(true)"> Tareas en seguimiento </ion-button>
-            <ion-modal [isOpen]="isModalOpen">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar>
-                    <ion-title> Tareas en seguimiento </ion-title>
-                    <ion-buttons slot="end">
-                      <ion-button (click)="setOpen(false)"> Cerrar </ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-                <ion-content class="ion-padding">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
-                    reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui.
-                    Eaque,
-                    dicta.
-                  </p>
-                </ion-content>
-              </ng-template>
-            </ion-modal>
           </ion-col>
           <ion-col>
             <ion-button shape="round" color="success"> Tareas pendientes de evaluación </ion-button>
@@ -124,3 +106,63 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<!-- 
+  MODAL DE SELECCIÓN DE AVATAR 
+-->
+<ion-modal [isOpen]="modalAvatarsOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title> Selección de avatar </ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="openAvatars(false)"> Cerrar </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="avatarBoxSelection">
+        <ion-list *ngFor="let avatar of avatar_list">
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-img class="avatar" src="{{ avatar }}"></ion-img>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="success" shape="round" (click)="avatarSelected(avatar)"> Seleccionar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+<!-- 
+  MODAL VISTA DE TAREAS EN SEGUIMIENTO
+-->
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title> Tareas en seguimiento </ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)"> Cerrar </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
+        reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui.
+        Eaque,
+        dicta.
+      </p>
+    </ion-content>
+  </ng-template>
+</ion-modal>

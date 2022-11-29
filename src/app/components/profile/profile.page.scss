@@ -13,8 +13,8 @@
 }
 
 .avatar {
-    width: 10%;
-    height: 10%;
+    width: 150px;
+    height: 150px;
 }
 
 
@@ -33,4 +33,9 @@
     text-align: center;
     background-image: url(../../../assets/img/wave-haikei.png);
     background-size: cover;
+}
+
+.avatarBoxSelection {
+    height: 600px;
+    width: 400px;
 }
