@@ -109,7 +109,6 @@ export class FightDisplayPage implements OnInit, OnDestroy {
     let fileRef;
     let storageRef;
     this.storeService.getCreatures().subscribe((creaturesList) => {
-      console.log('creaturesList ', creaturesList);
       this.grumpiList = [];
       creaturesList.forEach((creatureData: any) => {
         this.grumpiList.push({

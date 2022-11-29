@@ -29,17 +29,36 @@
 
 .list-group {
     position: fixed;
-    top: 10%;
+    top: 13%;
     right: 20px;
     z-index: 99;
+    overflow-y: scroll;
+    width: 150px;
+    height: 200px;
 }
-li{
+
+.titleList {
+    color: black;
+    background-color: aquamarine;
+    border-radius: 10px 0px 39px 22px;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    position: fixed;
+    top: 9%;
+    right: 20px;
+    z-index: 99;
+    width: 150px;
+    height: 200px;
+    text-align: center;
+}
+
+li {
     cursor: pointer;
 }
 
 .mapboxgl-popup {
     max-width: 800px;
 }
+
 .mapboxgl-popup-content {
     color: black;
     text-align: center;

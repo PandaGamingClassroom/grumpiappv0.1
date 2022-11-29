@@ -1,0 +1,707 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Madrid"
+            },
+            "geometry": {
+                "coordinates": [
+                    -3.93466441216205,
+                    40.48671273598477
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Toledo"
+            },
+            "geometry": {
+                "coordinates": [
+                    -4.284682444193919,
+                    39.93462661452567
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Valencia"
+            },
+            "geometry": {
+                "coordinates": [
+                    -0.5919232788533861,
+                    39.4932426828084
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Ciudad Real"
+            },
+            "geometry": {
+                "coordinates": [
+                    -4.185415474933137,
+                    39.081721128380664
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Zaragoza"
+            },
+            "geometry": {
+                "coordinates": [
+                    -0.940484484776249,
+                    41.69332539228286
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Murcia"
+            },
+            "geometry": {
+                "coordinates": [
+                    -1.3934282699577238,
+                    38.02351746784588
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Almería"
+            },
+            "geometry": {
+                "coordinates": [
+                    -2.775814168946141,
+                    36.970870824756815
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Jaén"
+            },
+            "geometry": {
+                "coordinates": [
+                    -4.055983933710877,
+                    37.838914926946075
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Granada"
+            },
+            "geometry": {
+                "coordinates": [
+                    -3.8749891194999293,
+                    37.23850888113263
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Córdoba"
+            },
+            "geometry": {
+                "coordinates": [
+                    -5.0521635320739335,
+                    37.94648350688806
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Sevilla"
+            },
+            "geometry": {
+                "coordinates": [
+                    -6.249986881137772,
+                    37.50128862256955
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Castellón"
+            },
+            "geometry": {
+                "coordinates": [
+                    -0.3169852306362486,
+                    40.09536351987926
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Huelva"
+            },
+            "geometry": {
+                "coordinates": [
+                    -7.204270712266265,
+                    37.369669744536154
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Cádiz"
+            },
+            "geometry": {
+                "coordinates": [
+                    -6.405766340316831,
+                    36.68193411612849
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Cáceres"
+            },
+            "geometry": {
+                "coordinates": [
+                    -6.579847669284135,
+                    39.54935412204914
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Badajoz"
+            },
+            "geometry": {
+                "coordinates": [
+                    -6.590178434667962,
+                    38.731354990849624
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Albacete"
+            },
+            "geometry": {
+                "coordinates": [
+                    -2.2202646770217314,
+                    38.97292698896028
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Cuenca"
+            },
+            "geometry": {
+                "coordinates": [
+                    -2.4268799847122864,
+                    40.20006782787242
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Ávila"
+            },
+            "geometry": {
+                "coordinates": [
+                    -4.987796623387027,
+                    40.794391688326044
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Segovia"
+            },
+            "geometry": {
+                "coordinates": [
+                    -4.417785291316051,
+                    41.05932308934476
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Salamanca"
+            },
+            "geometry": {
+                "coordinates": [
+                    -5.952786721358848,
+                    41.10369447077423
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Zamora"
+            },
+            "geometry": {
+                "coordinates": [
+                    -6.040053146745322,
+                    41.63429033270063
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "León"
+            },
+            "geometry": {
+                "coordinates": [
+                    -5.878605531217062,
+                    42.73697377738091
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Asturias"
+            },
+            "geometry": {
+                "coordinates": [
+                    -6.1315436151875815,
+                    43.44912812472373
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Cantábria"
+            },
+            "geometry": {
+                "coordinates": [
+                    -4.3318449942694315,
+                    43.36997150570434
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Lugo"
+            },
+            "geometry": {
+                "coordinates": [
+                    -7.8605958888823295,
+                    43.12016574795737
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "La Coruña"
+            },
+            "geometry": {
+                "coordinates": [
+                    -8.717039554352084,
+                    43.45823011608394
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Pontevedra"
+            },
+            "geometry": {
+                "coordinates": [
+                    -8.940232696126259,
+                    42.56283152463433
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Palencia"
+            },
+            "geometry": {
+                "coordinates": [
+                    -4.8201181941839195,
+                    42.11888529913628
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Soria"
+            },
+            "geometry": {
+                "coordinates": [
+                    -2.761285394081625,
+                    41.90852249291669
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Valladolid"
+            },
+            "geometry": {
+                "coordinates": [
+                    -5.050046679204769,
+                    41.763613425526245
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Burgos"
+            },
+            "geometry": {
+                "coordinates": [
+                    -4.065388386246326,
+                    42.487176053896064
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Vizcaya"
+            },
+            "geometry": {
+                "coordinates": [
+                    -2.935295309767099,
+                    43.25262306802759
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Álava"
+            },
+            "geometry": {
+                "coordinates": [
+                    -2.673495489330378,
+                    42.85116675538103
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Guipúzcoa"
+            },
+            "geometry": {
+                "coordinates": [
+                    -1.983846324591326,
+                    43.32300762957118
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Navarra"
+            },
+            "geometry": {
+                "coordinates": [
+                    -1.6464409985941018,
+                    42.818377466762314
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Huesca"
+            },
+            "geometry": {
+                "coordinates": [
+                    -0.4063856269561086,
+                    42.13993014871511
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Lleida"
+            },
+            "geometry": {
+                "coordinates": [
+                    0.6270547157247108,
+                    41.615046723264925
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Barcelona"
+            },
+            "geometry": {
+                "coordinates": [
+                    2.1774448309118952,
+                    41.38359321798052
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Girona"
+            },
+            "geometry": {
+                "coordinates": [
+                    2.815145256075624,
+                    41.97923541222258
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Tarragona"
+            },
+            "geometry": {
+                "coordinates": [
+                    1.2541427213343468,
+                    41.11721022411601
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Teruel"
+            },
+            "geometry": {
+                "coordinates": [
+                    -1.1050279324604162,
+                    40.34573058915055
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Formentera"
+            },
+            "geometry": {
+                "coordinates": [
+                    1.4681254360408502,
+                    38.6946946676363
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Ibiza"
+            },
+            "geometry": {
+                "coordinates": [
+                    1.409437732531785,
+                    38.983382320391996
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Mallorca"
+            },
+            "geometry": {
+                "coordinates": [
+                    2.935544421865245,
+                    39.6620142379723
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Menorca"
+            },
+            "geometry": {
+                "coordinates": [
+                    4.062549404185546,
+                    39.97779138884758
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Melilla"
+            },
+            "geometry": {
+                "coordinates": [
+                    -2.9447094411770536,
+                    35.29033364400702
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Ceuta"
+            },
+            "geometry": {
+                "coordinates": [
+                    -5.304381863970804,
+                    35.88889815422138
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Lanzarote"
+            },
+            "geometry": {
+                "coordinates": [
+                    -13.648157748875946,
+                    29.017411077570216
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Fuerteventura"
+            },
+            "geometry": {
+                "coordinates": [
+                    -14.029653469055859,
+                    28.39231055537853
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Tenerife"
+            },
+            "geometry": {
+                "coordinates": [
+                    -16.5651224123674,
+                    28.275985035158357
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Las Palmas"
+            },
+            "geometry": {
+                "coordinates": [
+                    -15.581194783518725,
+                    27.99282505864504
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Gomera"
+            },
+            "geometry": {
+                "coordinates": [
+                    -17.230629956637387,
+                    28.11546851649038
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "nombre": "Palma"
+            },
+            "geometry": {
+                "coordinates": [
+                    -17.860481412810202,
+                    28.70694129230013
+                ],
+                "type": "Point"
+            }
+        }
+    ]
+}

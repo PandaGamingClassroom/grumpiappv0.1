@@ -1,3 +1,26 @@
 .fixText {
     text-align: center;
 }
+
+.money-card {
+    position: fixed;
+    top: 10%;
+    right: 20px;
+    z-index: 99;
+    background-color: aquamarine;
+    border-radius: 10px 0px 39px 22px;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    color: black;
+    width: 200px;
+    height: 40px;
+    padding-left: 1%;
+}
+
+.mainBox {
+    background-image: url(../../../assets/img/wave-haikei.png);
+    background-size: cover;
+    border: 1px solid black;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    border-radius: 10px 0px 39px 22px;
+    padding-top: 15%;
+}

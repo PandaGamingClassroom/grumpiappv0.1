@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
+
 import * as mapboxgl from 'mapbox-gl';
-import { Marcas } from '../../models/interfaces/geoLocation.interface';
+
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-map',
@@ -17,38 +20,21 @@ export class MapPage implements OnInit, OnDestroy {
   mapa!: mapboxgl.Map;
 
   /** Control del zoom en el mapa */
-  zoomLevel: number = 5.18;
+  zoomLevel: number = 5.07;
 
   /**
    * Listado de marcadores para el mapa
    */
   marcadores: mapboxgl.Marker[] = [];
-  listaMarcadores: Marcas[] = [];
-
-  /**
-   * 
-   * MARCADORES DE COMUNIDADES EN EL MAPA
-   * 
-   */
-  madridMarker: [number, number] = [-3.6968750107555226, 40.413968834548996];
-  granadaMarker: [number, number] = [-3.5921160031997386, 37.17662711972035];
-  almeriaMarker: [number, number] = [-2.457262929199076, 36.8465456517929];
-  malagaMarker: [number, number] = [-4.428196056164957, 36.73791493554032];
-  cadizMarker: [number, number] = [-6.189117854225306, 36.54827582580875];
-  sevillaMarker: [number, number] = [-5.981809821054786, 37.374947978046094];
-  huelvaMarker: [number, number] = [-6.941693596056062, 37.274399566670816];
-  cordobaMarker: [number, number] = [-4.791758753424231, 37.87378779802737];
-  jaenMarker: [number, number] = [-3.78598153268191, 37.7822072368544];
+  listaMarcadores: any[] = [];
 
 
-
-
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-    console.log();
-    
-   }
+    this.getMapData();
+  }
+
 
 
   /**
@@ -77,48 +63,47 @@ export class MapPage implements OnInit, OnDestroy {
 
   ionViewDidEnter() {
     this.buildMap();
+
+  }
+
+  /**
+   * Se obtienen los datos de la localización a través de un JSON
+   */
+  getMapData() {
+    this.httpClient.get("assets/map.json").subscribe((data: any) => {
+      data.features.forEach((data: any) => {
+        this.listaMarcadores.push(data);
+        console.log('LISTA DE MARCADORES: ', data);
+        
+      })
+    });
   }
 
   /**
    * Posición de las marcas en el mapa
    */
   markers() {
-    
-    this.marcadores = [
+
+    let nameCountry;
+
+    this.listaMarcadores.forEach(mark => {
+      nameCountry = mark.properties.nombre;
+      console.log('NOMBRES PROVINCIAS: ', nameCountry);
+      
       new mapboxgl.Marker()
-        .setLngLat(this.madridMarker)
-        .addTo(this.mapa),
-      new mapboxgl.Marker()
-        .setLngLat(this.granadaMarker)
-        .addTo(this.mapa),
-      new mapboxgl.Marker()
-        .setLngLat(this.almeriaMarker)
-        .addTo(this.mapa),
-      new mapboxgl.Marker()
-        .setLngLat(this.malagaMarker)
+        .setLngLat(mark.geometry.coordinates)
+        .addTo(this.mapa)
         .setPopup(
-          new mapboxgl.Popup({ offset: 30 }) // add popups
+          new mapboxgl.Popup({ offset: 30 })
             .setHTML(
-              `<h3> Hola </h3><p> adios </p>`
+              `
+              <div style="color: black;">
+                <h3> ${{ nameCountry }} </h3> <button>Lo quiero</button>
+              </div>
+              `
             )
         )
-        .addTo(this.mapa),
-      new mapboxgl.Marker()
-        .setLngLat(this.cadizMarker)
-        .addTo(this.mapa),
-      new mapboxgl.Marker()
-        .setLngLat(this.sevillaMarker)
-        .addTo(this.mapa),
-      new mapboxgl.Marker()
-        .setLngLat(this.huelvaMarker)
-        .addTo(this.mapa),
-      new mapboxgl.Marker()
-        .setLngLat(this.cordobaMarker)
-        .addTo(this.mapa),
-      new mapboxgl.Marker()
-        .setLngLat(this.jaenMarker)
-        .addTo(this.mapa)
-    ];
+    });
 
   }
 
@@ -137,6 +122,7 @@ export class MapPage implements OnInit, OnDestroy {
   }
 
   /**
+   * Modifica el zoom que se realiza a través de la barra de zoom
    * 
    * @param valor Recibe el valor del zoom de la barra
    */
@@ -144,22 +130,18 @@ export class MapPage implements OnInit, OnDestroy {
     this.mapa.zoomTo(Number(valor));
   }
 
-  irMarcador(marcador: mapboxgl.Marker) {
+  /**
+   * Nos envía a la localización del marcador seleccionado
+   * 
+   * @param marcador Marcador seleccionado
+   */
+  irMarcador(marcador: any) {
     this.mapa.flyTo({
-      center: marcador.getLngLat(),
+      center: marcador.geometry.coordinates,
       zoom: 9.36
     });
   }
 
-  agregarMarcador() {
-    const newMarker = new mapboxgl.Marker({
-      draggable: true
-    })
-      .setLngLat(this.madridMarker)
-      .addTo(this.mapa);
-
-    this.marcadores.push(newMarker);
-  }
 
   ngOnDestroy(): void {
     this.mapa.off('zoom', () => { });

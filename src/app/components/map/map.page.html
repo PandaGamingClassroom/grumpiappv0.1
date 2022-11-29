@@ -8,14 +8,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
+
+  <h3 class="titleList"> Comunidades </h3>
   <ul class="list-group">
-    <li class="list-group-item list-group-item-info" (click)="agregarMarcador()">
-      + Agregar
-    </li>
-    <li class="list-group-item" *ngFor="let marcador of marcadores" (click)="irMarcador(marcador)">
-      Marcador
+    <li class="list-group-item" *ngFor="let marcador of listaMarcadores" (click)="irMarcador(marcador)">
+      {{ marcador.properties.nombre }}
     </li>
   </ul>
+
 
   <!-- MAPA GRUMPI -->
   <div #mapa class="mapBox"></div>
