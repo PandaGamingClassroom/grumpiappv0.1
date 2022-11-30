@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonModal, ModalController } from '@ionic/angular';
 import { GRUMPI } from 'src/app/models/grumpi.model';
@@ -33,6 +33,11 @@ export class CombatScreenPage implements OnInit {
   @ViewChild(IonModal)
   modal!: IonModal;
 
+  /**
+   * Control de las ventanas modales
+   * @param isModalOpen
+   * @param isOpen
+   */
   isModalOpen = false;
   isOpen = false;
 
@@ -50,6 +55,16 @@ export class CombatScreenPage implements OnInit {
   obj7 = '../../../../assets/obj/Losa tierra.png';
   obj8 = '../../../../assets/obj/Losa vida.png';
 
+  /**
+   * Variables para la comprobación de la resolución de pantalla
+   */
+  public getScreenWidth: any;
+  public getScreenHeight: any;
+
+  /**
+   * Si @param mobileResolution es true, solo se muestra en resolución de móvil
+   */
+  mobileResolution: boolean = true;
 
   constructor(private grumpisService: GrumpisService,
     public modalController: ModalController, private route: Router) { }
@@ -66,6 +81,24 @@ export class CombatScreenPage implements OnInit {
     this.objectList[6] = this.obj6;
     this.objectList[7] = this.obj7;
     this.objectList[8] = this.obj8;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.getScreenWidth = window.innerWidth;
+    this.getScreenHeight = window.innerHeight;
+    this.checkResolution();
+  }
+
+  checkResolution() {
+    if (this.getScreenWidth < 1024) {
+      this.mobileResolution = false;
+    } else if (this.getScreenWidth < 1280) {
+      this.mobileResolution = true;
+    } else {
+      this.mobileResolution = true;
+    }
+
   }
 
   cancel() {
@@ -148,7 +181,7 @@ export class CombatScreenPage implements OnInit {
 
   selectNewCreature() {
     console.log('Salud actual: ', this.actualHealth);
-    
+
     if (this.actualHealth >= 0) {
       this.creatureOver = false;
     } else {

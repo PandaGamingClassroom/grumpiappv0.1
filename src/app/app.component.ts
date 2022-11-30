@@ -13,12 +13,13 @@ export class AppComponent implements OnInit {
     { title: 'Inicio', url: '/home', icon: 'home' },
     { title: 'Mapa Grumpi', url: '/map', icon: 'map' },
     { title: 'Tienda Grumpi', url: '/shop-page', icon: 'storefront' },
+    { title: 'Evoluciones Grumpi', url: '/evolutions', icon: 'git-network' },
     { title: 'Combate Grumpi', url: '/fight-display', icon: 'sparkles' },
     { title: 'Perfil', url: '/profile', icon: 'person' },
     { title: 'GrumpiApp', url: '/about', icon: 'cog' },
   ];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     /**

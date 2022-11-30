@@ -7,7 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<!-- CONTENIDO MÓVIL -->
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="mobileResolution ? false: true">
   <ion-grid>
     <ion-row>
       <!-- CAMPO DE BATALLA -->
@@ -20,12 +21,13 @@
                   <ion-row>
                     <ion-col>
                       <!-- Salud criatura adversario -->
-                      <div>
+                      <div class="healthBox">
                         <ion-label> Salud: </ion-label>
                       </div>
                     </ion-col>
                     <ion-col>
-                      <ion-img src="../../../../assets/img/003.jpg" alt="Tarjeta Grumpi" style="width:100%"></ion-img>
+                      <ion-img class="cardBoxCreature1" src="../../../../assets/img/003.jpg" alt="Tarjeta Grumpi">
+                      </ion-img>
                     </ion-col>
                   </ion-row>
                 </ion-grid>
@@ -35,19 +37,19 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <ion-card-content *ngFor="let g of creatureToCombat">
+                <ion-card-content *ngFor="let g of creatureToCombat" class="secondColumn">
                   <ion-grid>
                     <ion-row>
                       <ion-col>
                         <a>
-                          <ion-img src="{{ g.img }}" alt="Tarjeta Grumpi" style="width:100%">
+                          <ion-img class="cardBoxCreature2" src="../../../../assets/img/003.jpg" alt="Tarjeta Grumpi">
                           </ion-img>
                         </a>
                       </ion-col>
-                      <ion-col>
+                      <ion-col class="">
                         <!-- Salud de la criatura usuario -->
-                        <div>
-                          <ion-label> Salud:  {{ actualHealth }} </ion-label>
+                        <div class="healthBox2">
+                          <ion-label> Salud: {{ actualHealth }} </ion-label>
                         </div>
                       </ion-col>
                     </ion-row>
@@ -105,7 +107,153 @@
   <!-- DIÁLOGO DE COMBATE -->
   <ion-grid>
     <ion-row>
-      <ion-col></ion-col>
+      <ion-col>
+        <div class="dialogBox" *ngFor="let creature of creatureToCombat">
+          <p> Has seleccionado a: {{ creature.name }} </p>
+          <p> Has usado: </p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- BARRA DE NAVEGACIÓN  -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button shape="round" color="success" (click)="presentPopover($event)"> Atacar </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="success" (click)="presentPopObject($event)"> Objeto </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="danger" (click)="setOpen(true)"> Rendirse </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-fab>
+</ion-content>
+
+<!-- CONTENIDO PC -->
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="mobileResolution ? true: false">
+  <ion-grid>
+    <ion-row>
+      <!-- CAMPO DE BATALLA -->
+      <ion-col>
+        <div class="cardBattlePC">
+          <ion-grid>
+            <ion-row>
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col >
+                      <!-- Salud criatura adversario -->
+                      <div class="">
+                        <ion-label> Salud: </ion-label>
+                      </div>
+                    </ion-col>
+                    <ion-col>
+                      <div class="cardBoxCreature1_PC">
+                        <ion-img src="../../../../assets/img/003.jpg" alt="Tarjeta Grumpi">
+                        </ion-img>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-row>
+          </ion-grid>
+          <ion-grid>
+            <ion-row>
+              
+            </ion-row>
+          </ion-grid>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-card-content *ngFor="let g of creatureToCombat" class="secondColumn">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                        <div class="cardBoxCreature2_PC">
+                          <ion-img src="../../../../assets/img/003.jpg" alt="Tarjeta Grumpi">
+                          </ion-img>
+                        </div>
+
+                      </ion-col>
+                      <ion-col class="">
+                        <!-- Salud de la criatura usuario -->
+                        <div class="">
+                          <ion-label> Salud: {{ actualHealth }} </ion-label>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card-content>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Botón de selección de la criatura -->
+  <ion-button id="open-modal" shape="round" color="success" style="padding-left: 25%;"> Selecciona Grumpi </ion-button>
+
+
+  <!-- ---------------
+
+                                              VENTANAS MODALES
+
+                                            -------------------- -->
+  <!-- Ventana modal con las criaturas del usuario -->
+  <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Tus Grumpis</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="cancel()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-grid>
+                <ion-row>
+                  <ion-col *ngFor="let g of gumpiSelectedList">
+                    <ion-img src="{{ g.img }}" alt="Grumpi conseguido {{ g.name }}"></ion-img>
+                    <ion-item>
+                      <ion-checkbox slot="start" [disabled]="allComplete ? true: false" (ionChange)="someComplete(g)"
+                        [(ngModel)]="g.isSelected">
+                      </ion-checkbox>
+                      <ion-label> {{ g.name }} </ion-label>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-button shape="round" color="success" (click)="acceptSelectionCreature()"> !A combatir¡ </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+
+  <!-- DIÁLOGO DE COMBATE -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="dialogBox" *ngFor="let creature of creatureToCombat">
+          <p> Has seleccionado a: {{ creature.name }} </p>
+          <p> Has usado: </p>
+        </div>
+      </ion-col>
     </ion-row>
   </ion-grid>
 
@@ -152,14 +300,20 @@
 <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
   <ng-template>
     <ion-content class="ion-padding fixText" *ngFor="let attack of creatureToCombat">
-      <ion-button shape="round" color="success"> 
-      <ion-label> {{ attack.ataques.ataque_basico.name }}:  </ion-label>  
-      <ion-label> {{ attack.ataques.ataque_basico.points }} </ion-label>
-      </ion-button>
-      <ion-button shape="round" color="success"> 
-        <ion-label> {{ attack.ataques.ataque_cargado.name }}: </ion-label>
-        <ion-label> {{ attack.ataques.ataque_cargado.points }} </ion-label>
-       </ion-button>
+      <ul class="list-group attackBox">
+        <li class="list-group-item attackBox">
+          <ion-button shape="round" color="success">
+            <ion-label> {{ attack.ataques.ataque_basico.name }} </ion-label>
+          </ion-button>
+          <ion-label style="color: white;"> {{ attack.ataques.ataque_basico.points }} </ion-label>
+        </li>
+        <li class="list-group-item attackBox">
+          <ion-button shape="round" color="success">
+            <ion-label> {{ attack.ataques.ataque_cargado.name }} </ion-label>
+          </ion-button>
+          <ion-label style="color: white;"> {{ attack.ataques.ataque_cargado.points }} </ion-label>
+        </li>
+      </ul>
     </ion-content>
   </ng-template>
 </ion-popover>
@@ -171,7 +325,7 @@
       <h3> Selección de objeto </h3>
       <div class="objectWindow">
         <ion-list *ngFor="let obj of objectList">
-          <ion-item >
+          <ion-item>
             <ion-grid>
               <ion-row>
                 <ion-col>

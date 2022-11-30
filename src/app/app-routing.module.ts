@@ -46,6 +46,14 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./components/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'evolutions',
+    loadChildren: () => import('./components/evolutions/evolutions.module').then( m => m.EvolutionsPageModule)
+  },
+  {
+    path: 'the-game',
+    loadChildren: () => import('./components/the-game/the-game.module').then( m => m.TheGamePageModule)
   }
 ];
 

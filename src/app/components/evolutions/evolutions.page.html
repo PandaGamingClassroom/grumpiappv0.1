@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="fixText"> Evoluciones Grumpi </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div *ngFor="let c of evolution_list">
+    <ion-list>
+      <ion-item>
+        <ion-img class="creatureBox" src=" {{ c }} "></ion-img>
+        <ion-button shape="round" color="success" (click)="creatureSelected(true, c)"> Ver </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label class="form-label colorText">
+        <strong> Grumpis seleccionados: </strong> {{ grumpi_checked.length }}
+      </label>
+    </div>
+  </div>
+</ion-content>
+
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title class="fixText"> </ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="creatureSelected(false, undefined)"> Cerrar </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding fixText">
+      <div class="iconBox">
+        <ion-img class="alertImg" src="{{ creature_details }}"></ion-img>
+      </div>
+      <div class="fixContent">
+        <ion-button shape="round" color="success" (click)="creatureChecked(false, creature_details)"> Lo quiero </ion-button>
+        <ion-button shape="round" color="danger" (click)="creatureSelected(false, undefined)"> Cancelar </ion-button>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

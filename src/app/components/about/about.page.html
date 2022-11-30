@@ -57,4 +57,11 @@
     </ion-button>
   </ion-fab>
 
+  <div class="mainTitle" *ngIf="gameOk ? true: false">
+    <ion-button shape="round" color="success" (click)="goGame()">
+      Juego Grumpi
+      <ion-icon name="game-controller-outline"></ion-icon>
+    </ion-button>
+  </div>
+
 </ion-content>

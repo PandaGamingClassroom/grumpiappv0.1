@@ -2,6 +2,7 @@
     background-image: url(../../../../assets/img/battleground.png);
     border-radius: 10px 0px 39px 22px;
     background-size: cover;
+    height: 500px;
 }
 
 .fixText {
@@ -20,4 +21,102 @@
 .objectWindow {
     height: 200px;
     overflow-y: scroll;
+}
+
+.points {
+    height: 20px;
+    width: 20px;
+    background-image: url(../../../../assets/img/star.png);
+    background-size: cover;
+}
+
+.attackBox {
+    background-image: url(../../../../assets/img/wave-haikei.png);
+    background-size: cover;
+}
+
+.dialogBox {
+    background-image: url(../../../../assets/img/wave-haikei.png);
+    background-size: cover;
+    height: 140px;
+    border-radius: 10px 0px 39px 22px;
+    overflow-y: scroll;
+    padding: 2%;
+}
+
+.healthBox {
+    color: black;
+    background-color: aquamarine;
+    border-radius: 10px 0px 39px 22px;
+    height: 40px;
+    width: 150px;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    border: 1px solid black;
+}
+
+.healthBox2 {
+    color: black;
+    background-color: aquamarine;
+    border-radius: 10px 0px 39px 22px;
+    height: 40px;
+    width: 150px;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    border: 1px solid black;
+}
+
+.cardBoxCreature1 {
+    position: fixed;
+    // top: 13%;
+    right: 25px;
+    width: 150px;
+    height: 200px;
+    z-index: 99;
+}
+
+.cardBoxCreature2 {
+    position: fixed;
+    left: 30px;
+    bottom: 350px;
+    width: 150px;
+    height: 200px;
+    padding: 10px;
+    z-index: 99;
+}
+
+.secondColumn {
+    padding-top: 50%;
+}
+
+.healthCol {
+    padding-top: 50%;
+}
+
+/*********************
+* CONF RESOLUCIÓN PC *
+**********************/
+
+.cardBattlePC {
+    background-image: url(../../../../assets/img/battleground.png);
+    border-radius: 10px 0px 39px 22px;
+    height: 700px;
+}
+
+.cardBoxCreature1_PC {
+    
+    // top: 13%;
+    padding-right: 5%;
+    right: 25px;
+    width: 400px;
+    height: 200px;
+    z-index: 99;
+}
+
+.cardBoxCreature2_PC {
+    position: fixed;
+    // top: 13%;
+    padding-left: 5%;
+    right: 25px;
+    width: 400px;
+    height: 200px;
+    z-index: 99;
 }
