@@ -10,10 +10,10 @@ aprendizaje, ya que pretende profundizar y reforzar en diversos aspectos que se 
 En concreto, este proyecto está basado un sistema de criaturas inventadas, que guarda ciertas similitudes
 con Pokémon o Temtem. Es decir, un juego que consiste en capturar unas criaturas, superar unos retos e incluso llegar a ser el campeón superando unos retos aún mayores.
 
-**------------------------------------------------------------------------------------------------------------------------------------**
+**---------------------------------------------------------------------------------------------------------------------------------**
 > Nueva versión de la aplicación, ahora trabajando con Ionic.
 > 
-**------------------------------------------------------------------------------------------------------------------------------------**
+**---------------------------------------------------------------------------------------------------------------------------------**
 
 
 **CREADORES:**
