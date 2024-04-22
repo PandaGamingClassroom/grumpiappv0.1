@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, ViewChild, OnDestroy } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
 import { GRUMPI } from 'src/app/models/grumpi.model';
 import { GrumpisService } from 'src/app/services/grumpis.service';
@@ -38,23 +37,22 @@ export class FightDisplayPage implements OnInit, OnDestroy {
   @ViewChild('popover') popover: any;
   isOpen = false;
 
-  constructor(private route: Router, 
-    private grumpisService: GrumpisService, 
+  constructor(private route: Router,
+    private grumpisService: GrumpisService,
     private storeService: StoreService,
-    private storage: AngularFireStorage
-    ) { 
-   
+    ) {
+
     }
 
   ngOnInit() {
     this.chargeCreatures();
-    
+
   }
 
   /**
    * Revisamos la lista de Criaturas
    * Marcamos con un máximo de 3 los Grumpis que se pueden seleccionar
-   * @param grumpiSelected 
+   * @param grumpiSelected
    */
   someComplete(grumpiSelected: any) {
     let checkGrumpi = false;
@@ -64,7 +62,7 @@ export class FightDisplayPage implements OnInit, OnDestroy {
       this.grumpi.checked = grumpiSelected.isSelected = true;
       this.gumpiToSend.push(grumpiSelected.data);
       console.log('Lista seleccionada: ', this.gumpiToSend);
-    } 
+    }
   }
 
   /**
@@ -84,7 +82,7 @@ export class FightDisplayPage implements OnInit, OnDestroy {
   /**
    * Hacemos sonar el click en pantalla
    * Suena cuando se selecciona algún elemento
-   * 
+   *
    */
   clickSound() {
     this.audio.play();
@@ -98,24 +96,14 @@ export class FightDisplayPage implements OnInit, OnDestroy {
       this.grumpisService.set(this.grumpiList);
       this.route.navigate(['/fight-display/combat-screen']);
     } else {
-      
+
       this.isOpen = true;
       // this.dialog.open(ErrorMessageComponent, { data: {} });
     }
   }
 
   chargeCreatures() {
-    this.storeService.getCreatures().subscribe((creaturesList) => {
-      this.grumpiList = [];
-      creaturesList.forEach((creatureData: any) => {
-        this.grumpiList.push({
-          id: creatureData.payload.doc.id,
-          data: creatureData.payload.doc.data()
-        });
-       
-      })
-      
-    });
+
   }
 
 
@@ -134,7 +122,7 @@ export class FightDisplayPage implements OnInit, OnDestroy {
 
   refresh() {
     window.location.reload();
-  } 
-  
+  }
+
 
 }

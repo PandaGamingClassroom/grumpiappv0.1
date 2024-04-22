@@ -14,9 +14,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginPage } from './login.page';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from 'src/app/services/login/authService.service';
-import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
-import { environment } from 'src/environments/environment';
-import { UsersService } from 'src/app/models/users/users.service';
 
 @NgModule({
   imports: [

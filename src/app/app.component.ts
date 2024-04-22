@@ -22,10 +22,7 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    /**
-     * TOKEN de la librería MAPBOX-GL para cargar el mapa
-     */
-    (mapboxgl as any).accessToken = environment.mapBoxToken;
+
   }
 
 }

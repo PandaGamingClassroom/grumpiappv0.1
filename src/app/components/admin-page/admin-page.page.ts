@@ -1,5 +1,4 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Users } from 'src/app/models/interfaces/users.interface';
 import { UsersService } from 'src/app/services/users/users.service';
@@ -24,8 +23,7 @@ export class AdminPagePage implements OnInit {
 
   @Output() alumnsList: any[] = [];
 
-  constructor(public formBuilder: FormBuilder, 
-    private alumnsService: UsersService, private storage: AngularFireStorage) { }
+  constructor(public formBuilder: FormBuilder,) { }
 
   ngOnInit() {
     this.chargeAlumns();
@@ -43,15 +41,7 @@ export class AdminPagePage implements OnInit {
 
 
   submitForm() {
-    this.isSubmitted = true;
-    if (!this.usersForm.valid) {
-      console.log('Por favor, rellena todos los campos!')
-    } else {
-      this.alumnsService.createAlumn(this.usersForm.value).then(res => {
-        console.log(res)
-        this.usersForm.reset();
-      })
-    }
+
   }
 
   /**
@@ -66,19 +56,7 @@ export class AdminPagePage implements OnInit {
   }
 
   chargeAlumns() {
-    this.alumnsService.getAlumns().subscribe((listadoAlumnos: any) => {
-      console.log('LISTADO: ', listadoAlumnos);
-      this.alumnsList = [];
-      listadoAlumnos.forEach((alumnData: any) => {
-        console.log('ALUMNOS: ', alumnData);
-        
-        this.alumnsList.push({
-          id: alumnData.payload.doc.id,
-          data: alumnData.payload.doc.data()
-        });
-      })
-      console.log('BBDD ALULMNOS', this.alumnsList[0].data);
-    });
+
   }
 
 }
